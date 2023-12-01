@@ -68,9 +68,10 @@ func NewScanner() *Scanner {
 
 func main() {
 	scan := NewScanner()
+	scan.srcPort = 33305
 	input  := make(chan []string)
 	connOutput,_ := scan.Scan(input)
-	input <- []string{"192.168.31.78"}
+	input <- []string{"192.168.31.77","192.168.31.78","192.168.31.79"}
 	ipStr := <- connOutput
 	fmt.Printf("out:%s\n",ipStr)
 }
